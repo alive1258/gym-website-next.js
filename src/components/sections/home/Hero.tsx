@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Dumbbell, Flame, Timer, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import Button from "@/src/components/ui/Button";
 import Badge from "@/src/components/ui/Badge";
 import StatCounter from "@/src/components/ui/StatCounter";
@@ -15,15 +16,29 @@ const floaters = [
 
 export default function Hero() {
   return (
-    <section className="bg-grid relative overflow-hidden bg-surface-1 pt-32 pb-20 sm:pt-40 sm:pb-28">
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-[44rem] -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
+    <section className="relative overflow-hidden pt-32 pb-20 sm:pt-40 sm:pb-28">
+      <Image
+        src="/images/Gym_12.23-19.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="absolute inset-0 -z-20 object-cover"
+      />
+      <div className="absolute inset-0 -z-10 bg-linear-to-b from-background/50 via-background/75 to-background" />
+      <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-176 -translate-x-1/2 rounded-full bg-accent/15 blur-[110px]" />
 
       {floaters.map(({ icon: Icon, className, delay }, i) => (
         <motion.div
           key={i}
           className={`pointer-events-none absolute hidden lg:flex size-14 items-center justify-center rounded-2xl border border-border bg-surface-1/80 backdrop-blur-sm ${className}`}
           animate={{ y: [0, -14, 0] }}
-          transition={{ duration: 5, delay, repeat: Infinity, ease: "easeInOut" }}
+          transition={{
+            duration: 5,
+            delay,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         >
           <Icon className="size-6 text-accent" strokeWidth={1.5} />
         </motion.div>
@@ -55,8 +70,8 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
         >
-          Strength coaching, high-intensity conditioning, and a community
-          that shows up before sunrise. This is where real progress happens.
+          Strength coaching, high-intensity conditioning, and a community that
+          shows up before sunrise. This is where real progress happens.
         </motion.p>
 
         <motion.div

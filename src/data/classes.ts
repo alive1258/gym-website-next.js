@@ -1,13 +1,3 @@
-import {
-  Flame,
-  Dumbbell,
-  Waves,
-  Swords,
-  Wind,
-  Bike,
-  type LucideIcon,
-} from "lucide-react";
-
 export type ClassCategory =
   | "Strength"
   | "Cardio"
@@ -19,12 +9,15 @@ export interface GymClass {
   id: string;
   name: string;
   category: ClassCategory;
-  icon: LucideIcon;
+  image: string;
   description: string;
   duration: string;
   intensity: "Low" | "Moderate" | "High";
   schedule: { day: string; time: string }[];
 }
+
+const unsplash = (photoId: string) =>
+  `https://images.unsplash.com/photo-${photoId}?auto=format&fit=crop&w=1200&q=80`;
 
 export const categories: ClassCategory[] = [
   "Strength",
@@ -39,7 +32,7 @@ export const classes: GymClass[] = [
     id: "iron-foundations",
     name: "Iron Foundations",
     category: "Strength",
-    icon: Dumbbell,
+    image: unsplash("1517836357463-d25dfeac3438"),
     description:
       "Barbell-focused strength training built on the big compound lifts — squat, bench, deadlift, press.",
     duration: "60 min",
@@ -53,7 +46,7 @@ export const classes: GymClass[] = [
     id: "metcon-forge",
     name: "MetCon Forge",
     category: "Conditioning",
-    icon: Flame,
+    image: unsplash("1571019613454-1cb2f99b2d8b"),
     description:
       "High-intensity functional circuits that blend kettlebells, sleds, and bodyweight work against the clock.",
     duration: "45 min",
@@ -67,7 +60,7 @@ export const classes: GymClass[] = [
     id: "combat-conditioning",
     name: "Combat Conditioning",
     category: "Combat",
-    icon: Swords,
+    image: unsplash("1731955138970-fc88fd48b80f"),
     description:
       "Boxing and kickboxing fundamentals paired with pad work and conditioning intervals.",
     duration: "50 min",
@@ -81,7 +74,7 @@ export const classes: GymClass[] = [
     id: "endurance-ride",
     name: "Endurance Ride",
     category: "Cardio",
-    icon: Bike,
+    image: unsplash("1520877880798-5ee004e3f11e"),
     description:
       "Studio cycling built around power zones and rhythm — a full cardiovascular engine session.",
     duration: "45 min",
@@ -95,7 +88,7 @@ export const classes: GymClass[] = [
     id: "mobility-reset",
     name: "Mobility Reset",
     category: "Recovery",
-    icon: Wind,
+    image: unsplash("1518611012118-696072aa579a"),
     description:
       "Guided mobility, breathwork, and soft-tissue work designed to speed recovery between hard sessions.",
     duration: "40 min",
@@ -109,7 +102,7 @@ export const classes: GymClass[] = [
     id: "aqua-power",
     name: "Aqua Power",
     category: "Cardio",
-    icon: Waves,
+    image: unsplash("1519315901367-f34ff9154487"),
     description:
       "Low-impact, high-output pool training for joint-friendly conditioning and recovery days.",
     duration: "40 min",
