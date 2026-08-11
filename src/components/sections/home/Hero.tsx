@@ -25,7 +25,7 @@ export default function Hero() {
         sizes="100vw"
         className="absolute inset-0 -z-20 object-cover"
       />
-      <div className="absolute inset-0 -z-10 bg-linear-to-b from-background/50 via-background/75 to-background" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-b from-background/60 via-background/75 to-background" />
       <div className="pointer-events-none absolute -top-32 left-1/2 h-96 w-176 -translate-x-1/2 rounded-full bg-accent/15 blur-[110px]" />
 
       {floaters.map(({ icon: Icon, className, delay }, i) => (

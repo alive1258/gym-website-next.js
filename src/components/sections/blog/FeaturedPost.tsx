@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Section from "@/src/components/ui/Section";
 import Reveal from "@/src/components/ui/Reveal";
@@ -9,10 +11,18 @@ export default function FeaturedPost() {
   return (
     <Section tone="raised" className="pt-0 sm:pt-0 lg:pt-0">
       <Reveal direction="zoom">
-        <article className="group relative grid gap-8 overflow-hidden rounded-[2rem] border border-border bg-surface-1 p-8 sm:p-12 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-16">
-          <div className="bg-grid relative flex aspect-[16/10] items-center justify-center overflow-hidden rounded-3xl border border-border">
-            <div className="absolute -top-1/3 left-1/2 h-2/3 w-2/3 -translate-x-1/2 rounded-full bg-accent/20 blur-3xl" />
-            <post.icon className="relative size-20 text-accent" strokeWidth={1.25} />
+        <Link
+          href={`/blog/${post.slug}`}
+          className="group relative grid gap-8 overflow-hidden rounded-[2rem] border border-border bg-surface-1 p-8 sm:p-12 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:gap-16"
+        >
+          <div className="relative aspect-16/10 w-full overflow-hidden rounded-3xl border border-border">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
           </div>
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-border-strong px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent">
@@ -34,7 +44,7 @@ export default function FeaturedPost() {
               <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </span>
           </div>
-        </article>
+        </Link>
       </Reveal>
     </Section>
   );

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import Section from "@/src/components/ui/Section";
 import SectionHeading from "@/src/components/ui/SectionHeading";
@@ -34,12 +35,15 @@ export default function TrainersPreview() {
               href="/trainers"
               className="group block overflow-hidden rounded-3xl border border-border bg-surface-1 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
             >
-              <div className="bg-grid relative flex aspect-[4/5] items-center justify-center overflow-hidden">
-                <div className="absolute -top-1/3 left-1/2 h-2/3 w-2/3 -translate-x-1/2 rounded-full bg-accent/20 blur-3xl transition-opacity duration-300 group-hover:opacity-80" />
-                <trainer.icon
-                  className="relative size-16 text-accent transition-transform duration-300 group-hover:scale-110"
-                  strokeWidth={1.25}
+              <div className="relative aspect-4/5 w-full overflow-hidden">
+                <Image
+                  src={trainer.image}
+                  alt={trainer.name}
+                  fill
+                  sizes="(min-width: 1024px) 23vw, (min-width: 640px) 46vw, 92vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/0 to-transparent" />
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-semibold">{trainer.name}</h3>

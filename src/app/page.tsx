@@ -9,6 +9,7 @@ import ShopPreview from "@/src/components/sections/home/ShopPreview";
 import PhotoGallery from "@/src/components/sections/home/PhotoGallery";
 import Testimonials from "@/src/components/sections/home/Testimonials";
 import PricingPreview from "@/src/components/sections/home/PricingPreview";
+import FaqSection from "@/src/components/sections/home/FaqSection";
 import CtaBanner from "@/src/components/sections/CtaBanner";
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default function Home() {
       <PhotoGallery />
       <Testimonials />
       <PricingPreview />
+      <FaqSection />
       <CtaBanner
         title="Your first session is free."
         description="Walk in, meet a coach, and see what real programming feels like. No pressure, no pitch."

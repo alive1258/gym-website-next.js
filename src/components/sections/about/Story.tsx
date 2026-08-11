@@ -1,14 +1,26 @@
-import { Flame } from "lucide-react";
+import Image from "next/image";
 import Section from "@/src/components/ui/Section";
 import Reveal from "@/src/components/ui/Reveal";
-import VisualPanel from "@/src/components/ui/VisualPanel";
 
 export default function Story() {
   return (
     <Section tone="raised">
       <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
-        <Reveal direction="left">
-          <VisualPanel icon={Flame} label="Est. 2014" className="aspect-[4/5] w-full" />
+        <Reveal
+          direction="left"
+          className="relative aspect-4/5 w-full overflow-hidden rounded-[1.75rem] border border-border"
+        >
+          <Image
+            src="/images/Gym_12.23-19.webp"
+            alt="Inside The Iron Office"
+            fill
+            sizes="(min-width: 1024px) 46vw, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-linear-to-t from-background/80 via-background/0 to-transparent" />
+          <span className="absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-[0.2em] text-white/90">
+            Est. 2014
+          </span>
         </Reveal>
 
         <div>
