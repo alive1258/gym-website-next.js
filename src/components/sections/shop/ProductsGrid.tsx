@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import Section from "@/src/components/ui/Section";
 import { products, productCategories, type ProductCategory } from "@/src/data/products";
@@ -59,11 +60,13 @@ export default function ProductsGrid() {
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-surface-1 transition-colors duration-300 hover:border-accent/40"
             >
-              <div className="bg-grid relative flex aspect-square items-center justify-center overflow-hidden">
-                <div className="absolute -top-1/3 left-1/2 h-2/3 w-2/3 -translate-x-1/2 rounded-full bg-accent/15 blur-3xl transition-opacity duration-300 group-hover:opacity-90" />
-                <product.icon
-                  className="relative size-12 text-accent transition-transform duration-300 group-hover:scale-110"
-                  strokeWidth={1.25}
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  sizes="(min-width: 1024px) 23vw, (min-width: 640px) 46vw, 92vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 {product.badge && (
                   <span
