@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Award, Star } from "lucide-react";
 import Section from "@/src/components/ui/Section";
 import Reveal, { RevealGroup } from "@/src/components/ui/Reveal";
@@ -13,12 +14,15 @@ export default function TrainersGrid() {
             delay={(i % 3) * 0.08}
             className="group overflow-hidden rounded-3xl border border-border bg-surface-1 transition-colors duration-300 hover:border-accent/40"
           >
-            <div className="bg-grid relative flex aspect-[4/3] items-center justify-center overflow-hidden">
-              <div className="absolute -top-1/3 left-1/2 h-2/3 w-2/3 -translate-x-1/2 rounded-full bg-accent/20 blur-3xl transition-opacity duration-300 group-hover:opacity-90" />
-              <trainer.icon
-                className="relative size-16 text-accent transition-transform duration-300 group-hover:scale-110"
-                strokeWidth={1.25}
+            <div className="relative aspect-4/3 w-full overflow-hidden">
+              <Image
+                src={trainer.image}
+                alt={trainer.name}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-linear-to-t from-background/90 via-background/0 to-transparent" />
               <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full border border-border-strong bg-background/70 px-3 py-1 text-xs font-semibold uppercase tracking-wide backdrop-blur-sm">
                 <Star className="size-3 fill-accent text-accent" />
                 {trainer.experience}
